@@ -9,7 +9,7 @@ music = False
 
 def set():
     global t
-    rem=sd.askstring("Время напоминания","Введите время напоминания в формате ЧЧ:ММ(в 24 часовом формате)")
+    rem=sd.askstring("Время напоминания","Введите время напоминания в формате ЧЧ:ММ(в 24  формате)")
     if rem:
         try:
             hour=int(rem.split(":")[0])
@@ -20,6 +20,7 @@ def set():
             print(dt)
             t=dt.timestamp()
             print(t)
+            label.config(text=f"Напоминание установлено на {hour:02}:{minute:02}")
             check()
         except Exception as e:
             mb.showerror("Ошибка",f"Некорректное время{e}")
@@ -51,15 +52,16 @@ def stop_music():
 
 window = Tk()
 window.title("Напоминание")
-window.geometry("300x150")
+window.geometry("390x150")
 
-label= Label(text="Установите напоминание",font=23)
+label= Label(text="Установите напоминание",font=("Arial", 16))
 label.pack(pady=10)
 
-set_button = Button(text="Установить", command=set)
+
+set_button = Button(text="Установить",font=("Arial", 12), command=set)
 set_button.pack(pady=10)
 
-stop_button = Button(text="Остановить музыку", command=stop_music)
+stop_button = Button(text="Остановить музыку",font=("Arial", 12), command=stop_music)
 stop_button.pack(pady=5)
 
 window.mainloop()
