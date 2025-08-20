@@ -17,13 +17,15 @@ def set():
             hour = int(rem.split(":")[0])
             minute = int(rem.split(":")[1])
             if hour < 0 or hour > 23 or minute < 0 or minute > 59:
-                raise ValueError
+                raise AttributeError
             now = datetime.datetime.now()
             dt = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
             t = dt.timestamp()
             label.config(text=f"Напоминание установлено на: {hour:02}:{minute:02}")
         except ValueError:
             mb.showerror("Ошибка", "Неверный формат времени")
+        except AttributeError:
+            mb.showerror("Ошибка", "Недопустимое время с часами меньше 0 и больше 23, и мнутами больше 59")
 
 def check():
     global t
