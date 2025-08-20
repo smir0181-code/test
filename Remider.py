@@ -4,9 +4,10 @@ from tkinter import simpledialog as sd
 import datetime
 import time
 import pygame
-
+t=0
 
 def set():
+    global t
     rem=sd.askstring("Время напоминания","Введите время напоминания в формате ЧЧ:ММ(в 24 часовом формате)")
     if rem:
         try:
@@ -20,7 +21,14 @@ def set():
             print(t)
         except Exception as e:
             mb.showerror("Ошибка",f"Некорректное время{e}")
-         
+def check():
+    global t
+    if t:
+        now=time.time()
+        if now>=t:
+            play_snd()
+            t=0
+    window.after(1000, check)         
 
 
 window = Tk()
