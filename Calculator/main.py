@@ -29,13 +29,19 @@ def set_operation(operation):
     first=float(entry.get())
     oper=operation
     entry.delete(0, END)
-    
+def validate_entry():
+    e = entry.get()
+    txt= ''.join(b for b in e if b in "0123456789.-")
+    if e != txt:
+        entry.delete(0, END)
+        entry.insert(0, txt)
     
 window=Tk()
 window.title("Калькулятор")
 #window.geometry("300x200")
 entry=ttk.Entry()
 entry.grid(row=0, column=0, columnspan=4, sticky="ew")
+entry.bind('<KeyRelease>', lambda event: validate_entry())
 
 ttk.Button(text="1", command=lambda: enter('1')).grid(row=1, column=0)
 ttk.Button(text="2", command=lambda: enter('2')).grid(row=1, column=1)
