@@ -20,7 +20,9 @@ def set():
             print(dt)
             t=dt.timestamp()
             print(t)
-            label.config(text=f"Напоминание установлено на {hour:02}:{minute:02}")
+            text=sd.askstring("Текст напоминания", "Введите текст напоминания")
+            label.config(text=text)
+            label.config(text=f"Напоминание установлено на {hour:02}:{minute:02} с текстом {text}")
             check()
         except Exception as e:
             mb.showerror("Ошибка",f"Некорректное время{e}")
@@ -52,16 +54,16 @@ def stop_music():
 
 window = Tk()
 window.title("Напоминание")
-window.geometry("390x150")
+window.geometry("450x150")
 
-label= Label(text="Установите напоминание",font=("Arial", 16))
+label= Label(text="Установите напоминание",font=("Arial", 14))
 label.pack(pady=10)
 
 
-set_button = Button(text="Установить",font=("Arial", 12), command=set)
+set_button = Button(text="Установить",font=("Arial", 11), command=set)
 set_button.pack(pady=10)
 
-stop_button = Button(text="Остановить музыку",font=("Arial", 12), command=stop_music)
+stop_button = Button(text="Остановить музыку",font=("Arial", 11), command=stop_music)
 stop_button.pack(pady=5)
 
 window.mainloop()
