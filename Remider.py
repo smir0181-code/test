@@ -33,14 +33,14 @@ def play_snd():
     pygame.mixer.init()
     pygame.mixer.music.load("reminder.mp3")
     pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+    # while pygame.mixer.music.get_busy():
+    #     pygame.time.Clock().tick(10)
         
 
 
 window = Tk()
 window.title("Напоминание")
-window.geometry("300x250")
+window.geometry("300x150")
 label= Label(text="Установите напоминание",font=23)
 label.pack(pady=10)
 set_button = Button(text="Установить", command=set)
