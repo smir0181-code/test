@@ -9,5 +9,6 @@ def div(a, b):
        raise ZeroDivisionError("Деление на ноль невозможно")
     else:
         return a/b
-    
+def square(a):
+    return a**2
 

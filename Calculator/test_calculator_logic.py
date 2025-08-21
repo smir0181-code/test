@@ -30,10 +30,16 @@ def test_div():
         c.div("10", 5)
     with pytest.raises(ZeroDivisionError):
         c.div(10, 0)
+def test_square():
+    assert c.square(4) == 16
+    assert c.square(0) == 0
+    with pytest.raises(TypeError):
+        c.square("4")
+    with pytest.raises(ValueError):
+        c.square(-4)
 test_add()
-
 test_sub()
-
 test_mul()
 test_div()
+
 print('Тесты пройдены успешно')
