@@ -25,7 +25,7 @@ def set():
         except ValueError:
             mb.showerror("Ошибка", "Неверный формат времени")
         except AttributeError:
-            mb.showerror("Ошибка", "Недопустимое время с часами меньше 0 и больше 23, и мнутами больше 59")
+            mb.showerror("Ошибка", "Недопустимое время с часами меньше 0 и больше 23, и минутами больше 59")
 
 def check():
     global t
