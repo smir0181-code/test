@@ -33,10 +33,10 @@ def test_div():
 def test_square():
     assert c.square(4) == 16
     assert c.square(0) == 0
+    assert c.square(-3) == 9
     with pytest.raises(TypeError):
         c.square("4")
-    with pytest.raises(ValueError):
-        c.square(-4)
+
 test_add()
 test_sub()
 test_mul()
